@@ -17,7 +17,7 @@ class Crawler(object):
         self.threadnum = threadnum
         self.threadpool = []
 
-    def craw(self):  # 爬虫的控制大脑，包括爬取网页，更新队列
+    def craw(self):  
         global g_queueURL
         g_queueURL.append(url)
         depth = 1
@@ -28,7 +28,7 @@ class Crawler(object):
             g_pages = []
             depth += 1
     
-    def downloadAll(self):  # 调用多线程爬虫，在小于线程最大值和没爬完队列之前，会增加线程
+    def downloadAll(self):  
         global g_queueURL
         i = 0
         while i < len(g_queueURL):
@@ -42,12 +42,12 @@ class Crawler(object):
             threadpool = []
         g_queueURL = []
     
-    def download(self, url, tid):  # 调用多线程爬虫
+    def download(self, url, tid):  
         crawthread = CrawlerThread(url, tid)
         self.threadpool.append(crawthread)
         crawthread.start()
 
-    def updateQueueURL(self):  # 完成一个深度的爬虫之后，更新队列
+    def updateQueueURL(self):  
         global g_queueURL
         global g_existURL
         newUrlList = []
@@ -55,12 +55,12 @@ class Crawler(object):
             newUrlList += self.getUrl(content)
         g_queueURL = list(set(newUrlList) - set(g_existURL))
 
-    def getUrl(self, content):  # 从获取的网页中解析url
+    def getUrl(self, content):  
         link_list = re.findall('<a href="/wiki/([^:#=<>]*?)".*?</a>', content)
         unique_list = list(set(link_list))
         return unique_list
 
-class CrawlerThread(threading.Thread):  # 爬虫线程
+class CrawlerThread(threading.Thread):  
     def __init__(self, url, tid):
         threading.Thread.__init__(self)
         self.url = url
@@ -81,8 +81,7 @@ class CrawlerThread(threading.Thread):  # 爬虫线程
             for eachone in unique_list2:
                 g_writecount += 1
                 content2 = ('No.' + str(g_writecount) + '\t Thread' + str(self.tid) + '\t' + self.url + '->' + eachone + '\n')
-                with open(r'D:\Code\Python\WebScraping\Wikipedia\link_14_4.txt'
-                          , 'a+') as f:
+                with open('Breadth_First.txt', 'a+') as f:
                     f.write(content2)
         except Exception as e:
             g_mutex.acquire()

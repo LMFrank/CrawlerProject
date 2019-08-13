@@ -24,7 +24,6 @@ def scrappy(url, depth=1):
         return None
     
     exist_url.append(url)
-    # 去除不需要的url链接（侧边栏、页眉等）url链接以/wiki/开头，且不包含:#=<>
     link_list = re.findall('<a href="/wiki/([^:#=<>]*?)".*?</a>', html)
     unique_list = list(set(link_list) - set(exist_url))
 
@@ -32,7 +31,7 @@ def scrappy(url, depth=1):
         g_writecount += 1
         output = 'No.' + str(g_writecount) + '\t Depth:' +str(depth) + '\t' + url + ' -> ' + eachone + '\n'
         print(output)
-        with open(r'D:\Code\Python\WebScraping\Wikipedia\link_14_3.txt', 'a+') as f:
+        with open('Depth_First.txt', 'a+') as f:
             f.write(output)
         
         if depth < 2:
