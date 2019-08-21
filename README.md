@@ -15,3 +15,8 @@
 * [广度优先的多线程爬虫](https://github.com/LMFrank/CrawlerProject/blob/master/Wikipedia/Breadth_First.py)
 ## BaiduAPI项目
 通过百度地图api获取全中国有关公园的信息，并且保存至mysql
+## 爬取虎扑步行街项目
+爬取虎扑步行街的帖子，并存储信息至MongoDB
+写了个简单的MongoAPI，用于在爬虫文件中调用pymongo的操作
+
+问题：1、只能爬取前10页，我认为应该是10页后需要登录才可以继续爬取。可以加入cookies解决反爬虫问题。
