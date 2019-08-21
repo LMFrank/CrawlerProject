@@ -5,7 +5,7 @@ import datetime
 from pymongo import MongoClient
 '''
 import time
-from Chapter6_5 import get_data, get_page
+from hupu_tools import get_data, get_page
 from MongoAPI import MongoAPI
 
 hupu_post = MongoAPI('localhost', 27017, 'hupu', 'post')
