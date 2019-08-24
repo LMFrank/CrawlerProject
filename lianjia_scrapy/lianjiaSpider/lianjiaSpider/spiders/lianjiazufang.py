@@ -3,13 +3,12 @@ import scrapy
 from lianjiaSpider.items import LianjiaspiderItem
 import re
 
-
 class LianjiazufangSpider(scrapy.Spider):
     name = 'lianjiazufang'
     allowed_domains = ['lianjia.com']
     start_urls = []
-    for i in range(1, 101):
-        start_urls.append('https://nj.lianjia.com/zufang/pg'+str(i))
+    with open(r'D:\Code\Python\CrawlerProjectCopy\lianjia_scrapy\url_list.txt', 'r') as f:
+        start_urls = [url.strip() for url in f.readlines()]
 
     def parse(self, response):
         house_list = response.xpath('//div[@class="content__list"]/div')
