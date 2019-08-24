@@ -40,7 +40,7 @@
 
 食用方法：
 1. 运行creat_table.py建表
-2. 对于大于3000条房源信息的获取需求，目前方案是先通过[get_url_list.py]()去获取需要的价格范围，并将得到的url存储至txt文件中，然后在lianjiazufang.py中获取url并添加至start_urls，运行爬虫
+2. 对于大于3000条房源信息的获取需求，目前方案是先通过[get_url_list.py](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/get_url_list.py)去获取需要的价格范围，并将得到的url存储至txt文件中，然后在lianjiazufang.py中获取url并添加至start_urls，运行爬虫
 
 ~~等待填坑：毫无疑问，使用scrapy+redis能够更好地动态添加、获取信息~~
 
