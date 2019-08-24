@@ -34,5 +34,7 @@ class LianjiazufangSpider(scrapy.Spider):
         item['unit_price'] = response.xpath('//p[@class="content__aside--title"]/span/text()').extract_first()
         floor = response.xpath('//div[@class="content__article__info"]/ul/li[8]').extract_first()
         item['floor'] = re.findall('.*楼层：(.*).*</li>', floor)[0]
+        item['longitude'] = re.findall("longitude: '(.*)',", response.text)[0]
+        item['latitude'] = re.findall("latitude: '(.*)'", response.text)[0]
         yield item
         
