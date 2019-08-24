@@ -42,7 +42,9 @@
 1. 运行creat_table.py建表
 2. 对于大于3000条房源信息的获取需求，目前方案是先通过[get_url_list.py](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/get_url_list.py)去获取需要的价格范围，并将得到的url存储至txt文件中，然后在lianjiazufang.py中获取url并添加至start_urls，运行爬虫
 
-~~等待填坑：毫无疑问，使用scrapy+redis能够更好地动态添加、获取信息~~
+等待填坑：
+1. 毫无疑问，使用scrapy+redis能够更好地动态添加、获取信息
+2. 结合高德地图api将爬取数据可视化。由于创建可视化地图需要房源的对应的经纬度，而在房源详情页中，我发现链家网使用了百度地图api的jsapi服务，生成了动态地图，可能导致了无法获得具体经纬度。因此目前先使用笨办法，将已爬取的数据结合百度api项目，爬取对应的经纬度数据
 
 在爬取过程中我发现链家网的租房方式除了普通房源以外，还有一种是公寓。爬虫里写的url地址是普通房源形式，而公寓房源的详情页是以另外一种结构的url，且显示的页面也不同，如有需求，可加上对公寓的判断。
 
