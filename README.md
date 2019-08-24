@@ -38,6 +38,12 @@
 
 链家网的显示方式为每页30条房源数据，最多显示100页，即3000条。因此，可以使用之前提到的使用二分法切割价格区间，从而得到完整数据。
 
+食用方法：
+1. 运行creat_table.py建表
+2. 对于大于3000条房源信息的获取需求，目前方案是先通过[get_url_list.py]()去获取需要的价格范围，并将得到的url存储至txt文件中，然后在lianjiazufang.py中获取url并添加至start_urls，运行爬虫
+
+~~等待填坑：毫无疑问，使用scrapy+redis能够更好地动态添加、获取信息~~
+
 在爬取过程中我发现链家网的租房方式除了普通房源以外，还有一种是公寓。爬虫里写的url地址是普通房源形式，而公寓房源的详情页是以另外一种结构的url，且显示的页面也不同，如有需求，可加上对公寓的判断。
 
 ![普通房源](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/%E6%99%AE%E9%80%9A.png) ![公寓房源](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/%E5%85%AC%E5%AF%93.jpg)
