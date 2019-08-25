@@ -52,7 +52,7 @@
 
 ![MySQL效果图](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/mysql.jpg)
 
-数据可视化填坑完毕![效果图]()
+数据可视化填坑完毕![效果图](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/%E9%AB%98%E5%BE%B7api.jpg)
 &nbsp;&nbsp;在该项目中我爬取了链家网南京租房房源，单价在0-3000元/月，一共获得了34086条数据，略少于链家网显示的36997条。主要原因是之前提到的公寓获取问题，以及scrapy爬取过程中的自动去重。
 
 ~~吐槽：NJU仙林校区周围的房源非常少，但是都很贵，目测房源都在坑爹的二房东手里~~
