@@ -55,7 +55,7 @@ class RotateUserAgentMiddleware(UserAgentMiddleware):
         ua = random.choice(self.user_agent_list)
         if ua:
             # 显示当前使用的useragent
-            print("********Current UserAgent:%s************" % ua)
+            # print("********Current UserAgent:%s************" % ua)
             # 记录
             spider.logger.info('Current UserAgent: ' + ua)
             request.headers.setdefault('User-Agent', ua)
