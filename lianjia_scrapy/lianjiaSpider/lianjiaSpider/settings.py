@@ -15,7 +15,7 @@ SPIDER_MODULES = ['lianjiaSpider.spiders']
 NEWSPIDER_MODULE = 'lianjiaSpider.spiders'
 
 MYSQL_USER = 'root'
-MYSQL_PASSWORD = '199524'
+MYSQL_PASSWORD = 'pwd'
 MYSQL_DATABASE = 'lianjia'
 MYSQL_HOST = 'localhost'
 MYSQL_PORT = 3306
