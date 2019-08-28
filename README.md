@@ -3,9 +3,9 @@
 ## 链家网二手房源爬虫项目
 &emsp;&emsp;链家网的显示方式为每页30条房源数据，最多显示100页，即3000条。因此，我使用二分法切割价格区间，从而得到完整数据。
 
-同步爬取：[tongbu.py](https://github.com/LMFrank/CrawlerProject/blob/master/LianJia/tongbu.py)
+同步爬取：[tongbu.py](https://github.com/LMFrank/CrawlerProject/blob/master/LianJia/tongbu.py)（requests+xpath)
 
-异步爬取：[yibu.py](https://github.com/LMFrank/CrawlerProject/blob/master/LianJia/yibu.py)
+异步爬取：[yibu.py](https://github.com/LMFrank/CrawlerProject/blob/master/LianJia/yibu.py)（asyncio+aiohttp+xpath)
 
 有待改进：
 
@@ -25,10 +25,10 @@
 
 写了个简单的MongoAPI，用于在爬虫文件中调用pymongo的操作
 
-问题：1、只能爬取前10页，我认为应该是10页后需要登录才可以继续爬取。可以加入cookies解决反爬虫问题。
+问题：1、只能爬取前10页，应该是10页后需要登录才可以继续爬取。可以加入cookies解决反爬虫问题。
 
 ## 链家网租房爬虫项目（Scrapy+异步MySQL）
-刚好需要租房，因此写了这个爬虫项目。
+刚好需要租房，因此写了这个爬虫项目。目前网络上分享的关于链家网租房的爬虫项目似乎都已落后于网页更新，应该是今年链家网对租房页面进行了参数的重构。我提供的代码适配最新的租房网页，请放心食用:yum:，如果出现变动请告知。
 
 &emsp;&emsp;同步写入数据速度比较慢，而爬虫速度比较快，可能出现数据最后写入不到数据库中的情况，因此可以使用异步框架twisted解决这个问题。
 
@@ -57,7 +57,7 @@
 
 ~~吐槽：NJU仙林校区周围的房源非常少，但是都很贵，目测房源都在坑爹的二房东手里~~
 
-高德地图可视化api的分享功能最近在维护，因此网页源代码还无法提供。
+联系了高德地图平台的客服，表示高德地图可视化api的分享功能最近在维护，因此网页源代码还无法提供。
 
 
 
