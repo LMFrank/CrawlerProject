@@ -1,7 +1,7 @@
 # CrawlerProject
 个人练习的一些爬虫项目
 ## 链家网二手房源爬虫项目
-&emsp;&emsp;链家网的显示方式为每页30条房源数据，最多显示100页，即3000条。因此，我使用二分法切割价格区间，从而得到完整数据。
+链家网的显示方式为每页30条房源数据，最多显示100页，即3000条。因此，我使用二分法切割价格区间，从而得到完整数据。
 
 同步爬取：[tongbu.py](https://github.com/LMFrank/CrawlerProject/blob/master/LianJia/tongbu.py)（requests+xpath)
 
@@ -30,13 +30,13 @@
 ## 链家网租房爬虫项目（Scrapy+异步MySQL）
 刚好需要租房，因此写了这个爬虫项目。目前网络上分享的关于链家网租房的爬虫项目似乎都已落后于网页更新，应该是今年链家网对租房页面进行了参数的重构。我提供的代码适配最新的租房网页，请放心食用:yum:，如果出现变动请告知。
 
-&emsp;&emsp;同步写入数据速度比较慢，而爬虫速度比较快，可能出现数据最后写入不到数据库中的情况，因此可以使用异步框架twisted解决这个问题。
+同步写入数据速度比较慢，而爬虫速度比较快，可能出现数据最后写入不到数据库中的情况，因此可以使用异步框架twisted解决这个问题。
 
 在pipeline.py中我重写了异步MySQL方法，同时settings中需要设置数据库连接参数，并且更改ITEM_PIPELINES的参数。
 
 ![数据库连接参数](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/settings.jpg) ![ITEM_PIPELINES的参数](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/item_pipeline.jpg)
 
-&emsp;&emsp;链家网的显示方式为每页30条房源数据，最多显示100页，即3000条。因此，可以使用之前提到的使用二分法切割价格区间，从而得到完整数据。
+链家网的显示方式为每页30条房源数据，最多显示100页，即3000条。因此，可以使用之前提到的使用二分法切割价格区间，从而得到完整数据。
 
 食用方法：
 1. 运行creat_table.py建表
@@ -46,14 +46,14 @@
 1. 毫无疑问，使用scrapy+redis能够更好地动态添加、获取信息
 2. 结合高德地图api将爬取数据可视化。由于创建可视化地图需要房源的对应的经纬度，~~而在房源详情页中，我发现链家网使用了百度地图api的jsapi服务，生成了动态地图，可能导致了无法获得具体经纬度。因此目前先使用笨办法，将已爬取的数据结合百度api项目，爬取对应的经纬度数据~~仔细查看后在<script>标签里，因此直接通过正则表达式即可获取经纬度数据
 
-&emsp;&emsp;在爬取过程中我发现链家网的租房方式除了普通房源以外，还有一种是公寓。爬虫里写的url地址是普通房源形式，而公寓房源的详情页是以另外一种结构的url，且显示的页面也不同，如有需求，可加上对公寓的判断。
+在爬取过程中我发现链家网的租房方式除了普通房源以外，还有一种是公寓。爬虫里写的url地址是普通房源形式，而公寓房源的详情页是以另外一种结构的url，且显示的页面也不同，如有需求，可加上对公寓的判断。
 
 ![普通房源](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/%E6%99%AE%E9%80%9A.png) ![公寓房源](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/%E5%85%AC%E5%AF%93.jpg)
 
 ![MySQL效果图](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/mysql.jpg)
 
 数据可视化填坑完毕![效果图](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/%E9%AB%98%E5%BE%B7api.jpg)
-&emsp;&emsp;在该项目中我爬取了链家网南京租房房源，单价在0-3000元/月，一共获得了34086条数据，略少于链家网显示的36997条。主要原因是之前提到的公寓获取问题，以及scrapy爬取过程中的自动去重。
+在该项目中我爬取了链家网南京租房房源，单价在0-3000元/月，一共获得了34086条数据，略少于链家网显示的36997条。主要原因是之前提到的公寓获取问题，以及scrapy爬取过程中的自动去重。
 
 ~~吐槽：NJU仙林校区周围的房源非常少，但是都很贵，目测房源都在坑爹的二房东手里~~
 
