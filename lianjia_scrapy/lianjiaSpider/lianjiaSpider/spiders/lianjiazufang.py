@@ -28,7 +28,7 @@ class LianjiazufangSpider(scrapy.Spider):
         item['rent'] = response.xpath('//p[@class="content__article__table"]/span[1]/text()').extract_first()
         item['apartment_layout'] = response.xpath('//p[@class="content__article__table"]/span[2]/text()').extract_first()
         item['area'] = response.xpath('//p[@class="content__article__table"]/span[3]/text()').extract_first()
-        item['oriention'] = response.xpath('//p[@class="content__article__table"]/span[4]/text()').extract_first()
+        item['orientation'] = response.xpath('//p[@class="content__article__table"]/span[4]/text()').extract_first()
         publish_time = response.xpath('//div[@class="content__subtitle"]/text()').extract()[1]
         item['publish_time'] = publish_time.split(' ')[1]
         item['unit_price'] = response.xpath('//p[@class="content__aside--title"]/span/text()').extract_first()
