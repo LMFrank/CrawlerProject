@@ -14,7 +14,7 @@ class LianjiaspiderItem(scrapy.Item):
     rent = scrapy.Field()
     apartment_layout = scrapy.Field()
     area = scrapy.Field()
-    oriention = scrapy.Field()
+    orientation = scrapy.Field()
     publish_time = scrapy.Field()
     unit_price = scrapy.Field()
     floor = scrapy.Field()

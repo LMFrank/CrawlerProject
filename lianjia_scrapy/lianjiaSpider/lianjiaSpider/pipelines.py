@@ -46,4 +46,4 @@ class MysqlTwistedPipeline(object):
         insert_sql = """insert into lianjia.spider(title, link, location, rent, apartment_layout, area, oriention, publish_time, unit_price, floor)
                         Values(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"""
         cursor.execute(insert_sql, (item['title'], item['link'], item['location'], item['rent'], item['apartment_layout'], 
-                                    item['area'], item['oriention'], item['publish_time'], item['unit_price'], item['floor']))
+                                    item['area'], item['orientation'], item['publish_time'], item['unit_price'], item['floor']))
