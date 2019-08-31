@@ -1,6 +1,13 @@
+- [CrawlerProject](#crawlerproject)
+    - [1.1 链家网二手房源](#1.1-链家网二手房源)
+    - [1.2 Wikipedia](#1.2-wikipedia)
+    - [1.3 BaiduAPI](#1.3-baiduapi)
+    - [1.4 爬取虎扑步行街](#1.4-爬取虎扑步行街)
+    - [1.5 链家网租房爬虫项目（Scrapy+异步MySQL）](#1.5-链家网租房爬虫项目scrapy异步mysql)
+
 # CrawlerProject
-个人练习的一些爬虫项目
-## 链家网二手房源爬虫项目
+
+### 1.1 链家网二手房源
 链家网的显示方式为每页30条房源数据，最多显示100页，即3000条。因此，我使用二分法切割价格区间，从而得到完整数据。
 
 同步爬取：[tongbu.py](https://github.com/LMFrank/CrawlerProject/blob/master/LianJia/tongbu.py)（requests+xpath)
@@ -14,20 +21,22 @@
 2、加入aiomultiprocessing库， 实现异步获得url，并发处理页面详细内容；
 
 3、表结构设计有不合理处，楼层可使用正则表达式直接获取，从而删除包含建造时间的字段。
-## Wikipedia项目
+
+### 1.2 Wikipedia
 * [深度优先的递归爬虫](https://github.com/LMFrank/CrawlerProject/blob/master/Wikipedia/Depth_First.py)
 * [广度优先的多线程爬虫](https://github.com/LMFrank/CrawlerProject/blob/master/Wikipedia/Breadth_First.py)
-## BaiduAPI项目
+
+### 1.3 BaiduAPI
 通过百度地图api获取全中国有关公园的信息，并且保存至mysql，注意表结构设计应遵循三范式
 
-## 爬取虎扑步行街项目
+### 1.4 爬取虎扑步行街
 爬取虎扑步行街的帖子，并存储信息至MongoDB
 
 写了个简单的MongoAPI，用于在爬虫文件中调用pymongo的操作
 
 问题：1、只能爬取前10页，应该是10页后需要登录才可以继续爬取。可以加入cookies解决反爬虫问题。
 
-## 链家网租房爬虫项目（Scrapy+异步MySQL）
+### 1.5 链家网租房爬虫项目（Scrapy+异步MySQL）
 刚好需要租房，因此写了这个爬虫项目。目前网络上分享的关于链家网租房的爬虫项目似乎都已落后于网页更新，应该是今年链家网对租房页面进行了参数的重构。我提供的代码适配最新的租房网页，请放心食用:yum:，如果出现变动请告知。
 
 同步写入数据速度比较慢，而爬虫速度比较快，可能出现数据最后写入不到数据库中的情况，因此可以使用异步框架twisted解决这个问题。
