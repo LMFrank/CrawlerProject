@@ -9,7 +9,7 @@ sql = """CREATE TABLE spider (
          rent VARCHAR(200),
          apartment_layout VARCHAR(200),
          area VARCHAR(200),
-         oriention VARCHAR(200),
+         orientation VARCHAR(200),
          publish_time VARCHAR(200),
          unit_price FLOAT,
          floor VARCHAR(200),
