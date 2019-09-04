@@ -86,14 +86,17 @@
 **运行爬虫：**
 1. 在爬虫服务器上，进入爬虫文件所在的路径，然后输入命令：
 >scrapy runspider 爬虫名
+
 不再是scrapy crawl 爬虫名
 2. 在Redis服务器上，推入一个开始的url链接：
 >redis-cli> lpush [redis_key] start_url
+
 开始爬取
 
 **Note:**
 1. 如果设置了LOG_FILE，那么爬虫报错时，终端只会出现：
 >Unhandled error in Deferred
+
 ![error](https://github.com/LMFrank/CrawlerProject/blob/master/fangtianxia_scrapy_redis/imgs/linux_error.jpg)
 此时，应进入.log文档内查看错误
 2. 查看防火墙是否阻挡连接，redis设置远程连接时，应注释掉redis.conf里的"bind 127.0.0.1"字段
