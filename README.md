@@ -5,6 +5,7 @@
 - [1.3 BaiduAPI](https://github.com/LMFrank/CrawlerProject/tree/master/baidumapapi)
 - [1.4 爬取虎扑步行街](https://github.com/LMFrank/CrawlerProject/tree/master/Hupu)
 - [1.5 链家网租房爬虫项目（Scrapy+异步MySQL）](https://github.com/LMFrank/CrawlerProject/tree/master/lianjia_scrapy)
+- [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)]()
 
 **NOTE:**
 1、所有项目的包依赖集合在[requirements.txt](https://github.com/LMFrank/CrawlerProject/blob/master/requirements.txt)，其中因为部署在linux服务器上，所以我删除了pywin32包，有需求可以自行添加
@@ -71,7 +72,31 @@
 
 联系了高德地图平台的客服，表示高德地图可视化api的分享功能最近在维护，因此网页源代码还无法提供。
 
+### 1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)
+该项目基于Scrapy-Redis框架实现分布式爬虫。其中，我使用了自身电脑（win10）作为master, WSL虚拟机和一台mac作为slave，从而实现分布式爬虫。WSL环境的搭建可参考我写的博文（[打造Win10+WSL开发环境【图文】(https://blog.csdn.net/LMFranK/article/details/100214551)
 
+**改造成分布式爬虫：**
+1、首先安装scrapy-redis
+2、将爬虫的类从 scrapy.Spider 变成 scrapy_redis.spiders.RedisSpider
+3、将爬虫中的start_urls删掉。增加一个redis_key="xxx"。这个redis_key是为了以后在redis中控制爬虫启动的。爬虫的第一个url，就是在redis中通过这个发送出去的
+![fang]()
+4、更改scrapy的配置文件，将爬虫的去重交由redis完成，并将结果存储至redis
+![settings]()
+
+**运行爬虫：**
+1、在爬虫服务器上，进入爬虫文件所在的路径，然后输入命令：
+>scrapy runspider 爬虫名
+不再是scrapy crawl 爬虫名
+2、在Redis服务器上，推入一个开始的url链接：
+>redis-cli> lpush [redis_key] start_url
+开始爬取
+
+**Note:**
+1、如果设置了LOG_FILE，那么爬虫报错时，终端只会出现：
+>Unhandled error in Deferred
+![error]()
+此时，应进入.log文档内查看错误
+2、查看防火墙是否阻挡连接，redis设置远程连接时，应注释掉redis.conf里的"bind 127.0.0.1"字段
 
 **以上爬虫项目均用于学习，不用于任何商业目的。**
 
