@@ -73,7 +73,7 @@
 联系了高德地图平台的客服，表示高德地图可视化api的分享功能最近在维护，因此网页源代码还无法提供。
 
 ### 1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)
-该项目基于Scrapy-Redis框架实现分布式爬虫。其中，我使用了自身电脑（win10）作为master, WSL虚拟机和一台mac作为slave，从而实现分布式爬虫。WSL环境的搭建可参考我写的博文（[打造Win10+WSL开发环境【图文】](https://blog.csdn.net/LMFranK/article/details/100214551)
+该项目基于Scrapy-Redis框架实现分布式爬虫。其中，我使用了自身电脑（win10）作为master, WSL虚拟机和一台mac作为slave，从而实现分布式爬虫。WSL环境的搭建可参考我写的博文（[打造Win10+WSL开发环境【图文】]）(https://blog.csdn.net/LMFranK/article/details/100214551)
 
 **改造成分布式爬虫：**
 1. 首先安装scrapy-redis
