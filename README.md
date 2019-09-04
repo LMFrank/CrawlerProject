@@ -5,7 +5,7 @@
 - [1.3 BaiduAPI](https://github.com/LMFrank/CrawlerProject/tree/master/baidumapapi)
 - [1.4 爬取虎扑步行街](https://github.com/LMFrank/CrawlerProject/tree/master/Hupu)
 - [1.5 链家网租房爬虫项目（Scrapy+异步MySQL）](https://github.com/LMFrank/CrawlerProject/tree/master/lianjia_scrapy)
-- [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)]()
+- [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)](https://github.com/LMFrank/CrawlerProject/tree/master/fangtianxia_scrapy_redis)
 
 **NOTE:**
 1、所有项目的包依赖集合在[requirements.txt](https://github.com/LMFrank/CrawlerProject/blob/master/requirements.txt)，其中因为部署在linux服务器上，所以我删除了pywin32包，有需求可以自行添加
@@ -79,9 +79,9 @@
 1、首先安装scrapy-redis
 2、将爬虫的类从 scrapy.Spider 变成 scrapy_redis.spiders.RedisSpider
 3、将爬虫中的start_urls删掉。增加一个redis_key="xxx"。这个redis_key是为了以后在redis中控制爬虫启动的。爬虫的第一个url，就是在redis中通过这个发送出去的
-![fang]()
+![fang](https://github.com/LMFrank/CrawlerProject/blob/master/fangtianxia_scrapy_redis/imgs/fang.jpg)
 4、更改scrapy的配置文件，将爬虫的去重交由redis完成，并将结果存储至redis
-![settings]()
+![settings](https://github.com/LMFrank/CrawlerProject/blob/master/fangtianxia_scrapy_redis/imgs/settings.jpg)
 
 **运行爬虫：**
 1、在爬虫服务器上，进入爬虫文件所在的路径，然后输入命令：
@@ -94,7 +94,7 @@
 **Note:**
 1、如果设置了LOG_FILE，那么爬虫报错时，终端只会出现：
 >Unhandled error in Deferred
-![error]()
+![error](https://github.com/LMFrank/CrawlerProject/blob/master/fangtianxia_scrapy_redis/imgs/linux_error.jpg)
 此时，应进入.log文档内查看错误
 2、查看防火墙是否阻挡连接，redis设置远程连接时，应注释掉redis.conf里的"bind 127.0.0.1"字段
 
