@@ -8,8 +8,8 @@
 - [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)](https://github.com/LMFrank/CrawlerProject/tree/master/fangtianxia_scrapy_redis)
 
 **NOTE:**
-1. 开发环境：Win10(WSL-Ubuntu、VBox-Ubuntu) + PyCharm(VSCode) + Cmder + XShell
-2. WSL环境的搭建可参考我写的博文（[打造Win10+WSL开发环境【图文】]）(https://blog.csdn.net/LMFranK/article/details/100214551)
+1. 开发环境：Win10(WSL-Ubuntu、VBox-Ubuntu) + Anaconda3 + PyCharm(VSCode) + Cmder + XShell
+2. WSL环境的搭建可参考我写的博文：[打造Win10+WSL开发环境【图文】](https://blog.csdn.net/LMFranK/article/details/100214551)
 3. VSCode Insider版本实现win10下远程连接WSL编写代码更加方便
 4. WSL的文件共享推荐XShell，VBox直接使用共享文件夹
 5. 终端强烈推荐Cmder，可以直接进入WSL环境
