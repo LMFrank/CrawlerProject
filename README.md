@@ -98,9 +98,9 @@
 **Note:**
 1. 如果设置了LOG_FILE，那么爬虫报错时，终端只会出现：
 >Unhandled error in Deferred
-
 ![error](https://github.com/LMFrank/CrawlerProject/blob/master/fangtianxia_scrapy_redis/imgs/linux_error.jpg)
-此时，应进入.log文档内查看错误
+   此时，应进入.log文档内查看错误
+
 2. 查看防火墙是否阻挡连接，redis设置远程连接时，应注释掉redis.conf里的"bind 127.0.0.1"字段
 
 **以上爬虫项目均用于学习，不用于任何商业目的。**
