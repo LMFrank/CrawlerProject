@@ -98,6 +98,7 @@
 **Note:**
 1. 如果设置了LOG_FILE，那么爬虫报错时，终端只会出现：
 >Unhandled error in Deferred
+
 ![error](https://github.com/LMFrank/CrawlerProject/blob/master/fangtianxia_scrapy_redis/imgs/linux_error.jpg)
    此时，应进入.log文档内查看错误
 
