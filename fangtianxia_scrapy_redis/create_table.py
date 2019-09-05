@@ -1,6 +1,6 @@
 import pymysql
 
-db = pymysql.connect('localhost', 'root', '199524', 'fangtianxia')
+db = pymysql.connect('localhost', 'root', 'pwd', 'fangtianxia')
 cursor = db.cursor()
 sql1 = """CREATE TABLE newhouse (
          id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -8,7 +8,7 @@ sql1 = """CREATE TABLE newhouse (
          city VARCHAR(200) NOT NULL,
          name VARCHAR(200) NOT NULL,
          house_type VARCHAR(200) NOT NULL,
-         areas VARCHAR(200) NOT NULL,
+         area VARCHAR(200) NOT NULL,
          address VARCHAR(200) NOT NULL,
          district VARCHAR(200) NOT NULL,
          sale VARCHAR(200) NOT NULL,
@@ -23,7 +23,7 @@ sql2 = """CREATE TABLE esfhouse (
          city VARCHAR(200) NOT NULL,
          name VARCHAR(200) NOT NULL,
          house_type VARCHAR(200) NOT NULL,
-         areas VARCHAR(200) NOT NULL,
+         area VARCHAR(200) NOT NULL,
          floor VARCHAR(200) NOT NULL,
          orientation VARCHAR(200) NOT NULL,
          year VARCHAR(200) NOT NULL,
