@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = 'fangtianxia_scrapy.spiders'
 
 
 MYSQL_USER = 'root'
-MYSQL_PASSWORD = '199524'
+MYSQL_PASSWORD = 'password'
 MYSQL_DATABASE = 'fangtianxia'
 MYSQL_HOST = 'localhost'
 MYSQL_PORT = 3306
@@ -120,3 +120,4 @@ SCHEDULER_PERSIST = True
 # 设置连接redis信息
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
+REDIS_PASSWORD = 'password'
