@@ -8,7 +8,12 @@
 - [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)](https://github.com/LMFrank/CrawlerProject/tree/master/fangtianxia_scrapy_redis)
 
 **NOTE:**
-1. 所有项目的包依赖集合在[requirements.txt](https://github.com/LMFrank/CrawlerProject/blob/master/requirements.txt)，其中因为部署在linux服务器上，所以我删除了pywin32包及mkl包，有需求可以自行添加
+1. 开发环境：Win10(WSL-Ubuntu、VBox-Ubuntu) + PyCharm(VSCode) + Cmder + XShell
+2. WSL环境的搭建可参考我写的博文（[打造Win10+WSL开发环境【图文】]）(https://blog.csdn.net/LMFranK/article/details/100214551)
+3. VSCode Insider版本实现win10下远程连接WSL编写代码更加方便
+4. WSL的文件共享推荐XShell，VBox直接使用共享文件夹
+5. 终端强烈推荐Cmder，可以直接进入WSL环境
+6. 所有项目的包依赖集合在[requirements.txt](https://github.com/LMFrank/CrawlerProject/blob/master/requirements.txt)，其中因为部署在linux服务器上，所以我删除了pywin32包及mkl包，有需求可以自行添加
 
 
 ### 1.1 链家网二手房源
@@ -57,9 +62,9 @@
 
 等待填坑：
 1. 毫无疑问，使用scrapy+redis能够更好地动态添加、获取信息
-2. 结合高德地图api将爬取数据可视化。由于创建可视化地图需要房源的对应的经纬度，~~而在房源详情页中，我发现链家网使用了百度地图api的jsapi服务，生成了动态地图，可能导致了无法获得具体经纬度。因此目前先使用笨办法，将已爬取的数据结合百度api项目，爬取对应的经纬度数据~~仔细查看后在<script>标签里，因此直接通过正则表达式即可获取经纬度数据
+2. 结合高德地图api将爬取数据可视化。由于创建可视化地图需要房源的对应的经纬度，~~而在房源详情页中，我发现链家网使用了百度地图api的jsapi服务，生成了动态地图，可能导致无法获得具体经纬度。因此目前先使用笨办法，将已爬取的数据结合百度api项目，爬取对应的经纬度数据~~仔细查看后，发现经纬度数据在<script>标签里，因此直接通过正则表达式获取
 
-在爬取过程中我发现链家网的租房方式除了普通房源以外，还有一种是公寓。爬虫里写的url地址是普通房源形式，而公寓房源的详情页是以另外一种结构的url，且显示的页面也不同，如有需求，可加上对公寓的判断。
+在爬取过程中我发现链家网的租房方式除了普通房源以外，还有一种是公寓。爬虫里写的url地址是普通房源形式，而公寓房源的详情页是另外一类url，且显示的页面也不同，如有需求，可加上对公寓的判断。
 
 ![普通房源](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/%E6%99%AE%E9%80%9A.png) ![公寓房源](https://github.com/LMFrank/CrawlerProject/blob/master/lianjia_scrapy/imgs/%E5%85%AC%E5%AF%93.jpg)
 
@@ -73,7 +78,7 @@
 联系了高德地图平台的客服，表示高德地图可视化api的分享功能最近在维护，因此网页源代码还无法提供。
 
 ### 1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)
-该项目基于Scrapy-Redis框架实现分布式爬虫。其中，我使用了自身电脑（win10）作为master, WSL虚拟机和一台mac作为slave，从而实现分布式爬虫。WSL环境的搭建可参考我写的博文（[打造Win10+WSL开发环境【图文】]）(https://blog.csdn.net/LMFranK/article/details/100214551)
+该项目基于Scrapy-Redis框架实现分布式爬虫。其中，我使用了自身电脑（win10）作为master, WSL虚拟机和一台mac作为slave，从而实现分布式爬虫。
 
 **改造成分布式爬虫：**
 1. 首先安装scrapy-redis
@@ -95,7 +100,8 @@
 
 开始爬取
 
-**Note:**
+**NOTE:**
+
 1. 如果设置了LOG_FILE，那么爬虫报错时，终端只会出现：
 >Unhandled error in Deferred
 
