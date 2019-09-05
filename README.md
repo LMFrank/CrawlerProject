@@ -82,7 +82,7 @@
 ![fang](https://github.com/LMFrank/CrawlerProject/blob/master/fangtianxia_scrapy_redis/imgs/fang.jpg)
 4. 更改scrapy的配置文件，将爬虫的去重交由redis完成，并将结果存储至redis
 ![settings](https://github.com/LMFrank/CrawlerProject/blob/master/fangtianxia_scrapy_redis/imgs/settings.jpg)
-如果redis服务器需求密码，应添加REDIS_PASSWORD='your password'项，这里提供另外一种方式：REDIS_URL:
+如果redis服务器需求密码，应添加REDIS_PASSWORD='your password'项，这里提供另外一种方式，一行命令即可，即REDIS_URL:
 >REDIS_URL='redis://:password@ip:port'
 
 **运行爬虫：**
