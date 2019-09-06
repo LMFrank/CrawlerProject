@@ -66,11 +66,9 @@ class FangSpider(RedisSpider):
         lis = response.xpath('//div[contains(@class,"nl_con clearfix")]/ul/li')
         for li in lis:
             # 页面中插入了广告页li，需要剔除
-            if li.xpath('.//div[@class="clearfix"]/h3'):
-                pass
-            else:
-                name_text = li.xpath('.//div[@class="nlcd_name"]/a/text()').get()
-                name = name_text.strip()
+            name_text = li.xpath('.//div[@class="nlcd_name"]/a/text()').get()
+            name = name_text.strip()
+            if name:
                 house_type_list = li.xpath('.//div[contains(@class, "house_type")]/a/text()').getall()
                 house_type_list = list(map(lambda x: re.sub(r'/s', '', x), house_type_list))
                 house_type = ','.join(list(filter(lambda x: x.endswith('居'), house_type_list)))
@@ -79,10 +77,19 @@ class FangSpider(RedisSpider):
                 area = re.sub(r'\s|－|/', '', area_text)
                 address = li.xpath('.//div[@class="address"]/a/@title').get()
                 district_text = ''.join(li.xpath('.//div[@class="address"]/a//text()').getall())
-                district = re.search(r'.*\[(.+)\].*', district_text).group(1)
+                try:
+                    district = re.search(r'.*\[(.+)\].*', district_text).group(1)
+                except:
+                    district = 'None'
                 sale = li.xpath('.//div[contains(@class, "fangyuan")]/span/text()').get()
                 price = "".join(li.xpath(".//div[@class='nhouse_price']//text()").getall())
                 price = re.sub(r"\s|广告", "", price)
+                # price1 = li.xpath('.//div[@class="nhouse_price"]/span/text()').get()
+                # price2 = li.xpath('.//div[@class="nhouse_price"]/em/text()').get()
+                # try:
+                #     price = price1 + price2
+                # except:
+                #     price = None
                 detail_url_text = li.xpath('.//div[@class="nlc_img"]/a/@href').get()
                 detail_url = response.urljoin(detail_url_text)
                 item = NewHouseItem(province=province, city=city, name=name, house_type=house_type, area=area,
@@ -100,11 +107,10 @@ class FangSpider(RedisSpider):
         province, city = response.meta.get('info')
         dls = response.xpath('//div[@class="shop_list shop_list_4"]/dl')
         for dl in dls:
-            if dl.xpath('.//div[@class="clearfix"]/h3'):
-                pass
-            else:
-                item = EsfHouseItem(province=province, city=city)
-                item["name"] = dl.xpath('.//span[@class="tit_shop"]/text()').get()
+            item = EsfHouseItem(province=province, city=city)
+            name = dl.xpath('.//span[@class="tit_shop"]/text()').get()
+            # 页面中插入了广告页li，需要剔除
+            if name:
                 infos = dl.xpath('.//p[@class="tel_shop"]/text()').getall()
                 infos = list(map(lambda x: re.sub(r"\s", "", x), infos))
                 for info in infos:
@@ -122,20 +128,21 @@ class FangSpider(RedisSpider):
                 item["total_price"] = "".join(dl.xpath(".//span[@class='red']//text()").getall())
                 item["unit_price"] = dl.xpath(".//dd[@class='price_right']/span[2]/text()").get()
                 item["detail_url"] = response.urljoin(dl.xpath(".//h4[@class='clearfix']/a/@href").get())
+                item["name"] = name
                 # 以下五个字段大概率会缺失，存入mysql会报错，因此加入判断
                 if 'house_type' not in item:
-                    item["house_type"] = 'None'
-                elif 'areas' not in item:
-                    item["areas"] = 'None'
+                    item["house_type"] = '/'
+                elif 'area' not in item:
+                    item["area"] = '/'
                 elif 'floor' not in item:
-                    item["floor"] = 'None' 
+                    item["floor"] = '/'
                 elif 'orientation' not in item:
-                    item["orientation"] = 'None'
+                    item["orientation"] = '/'
                 elif 'year' not in item:
-                    item["year"] = 'None'
+                    item["year"] = '/'
                 yield item
             next_url = response.xpath('//div[@class="page_al"]/p/a/@href').get()
             if next_url:
                 yield scrapy.Request(url=response.urljoin(next_url),
                                      callback=self.parse_esf,
-                                     meta={'info':(province,city)})
+                                     meta={'info': (province, city)})
