@@ -11,7 +11,7 @@
 1. 开发环境：Win10(WSL-Ubuntu、VBox-Ubuntu) + Anaconda3 + PyCharm(VSCode) + Cmder + XShell
 2. WSL环境的搭建可参考我写的博文：[打造Win10+WSL开发环境【图文】](https://blog.csdn.net/LMFranK/article/details/100214551)
 3. VSCode Insider版本实现win10下远程连接WSL编写代码更加方便
-4. WSL的文件共享推荐XShell，VBox直接使用共享文件夹
+4. WSL的文件共享推荐XShell，VBox直接使用共享文件夹。如果使用Pycharm，可以直接进入tools-Deployment-configuration，创建sftp连接
 5. 终端强烈推荐Cmder，可以直接进入WSL环境
 6. 所有项目的包依赖集合在[requirements.txt](https://github.com/LMFrank/CrawlerProject/blob/master/requirements.txt)，其中因为部署在linux服务器上，所以我删除了pywin32包及mkl包，有需求可以自行添加
 
