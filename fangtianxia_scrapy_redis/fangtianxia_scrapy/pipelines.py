@@ -8,6 +8,7 @@ from scrapy.exporters import JsonLinesItemExporter
 from fangtianxia_scrapy.items import NewHouseItem, EsfHouseItem
 from twisted.enterprise import adbapi
 import pymysql
+import pymongo
 
 class FangTianXiaScrapyPipeline(object):
     def __init__(self):
@@ -70,3 +71,39 @@ class MysqlTwistedPipeline(object):
             cursor.execute(insert_sql, (
                 item['province'], item['city'], item['name'], item['house_type'], item['area'], item['floor'],
                 item['orientation'], item['year'], item['address'], item['total_price'], item['unit_price'], item['detail_url']))
+
+class MongodbPipeline(object):
+    def __init__(self, mongo_uri, mongo_db):
+        self.mongo_uri = mongo_uri
+        self.mongo_db = mongo_db
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(
+            mongo_uri=crawler.settings.get('MONGO_URI'),
+            mongo_db=crawler.settings.get('MONGO_DATABASE')
+        )
+
+    def open_spider(self, spider):
+        self.client = pymongo.MongoClient(self.mongo_uri)
+        self.db = self.client[self.mongo_db]
+        self.db[NewHouseItem.collection].create_index([('id', pymongo.ASCENDING)])
+        self.db[EsfHouseItem.collection].create_index([('id', pymongo.ASCENDING)])
+        print("打开数据库...")
+
+    def close_spider(self,spider):
+        print('写入完毕，关闭数据库.')
+        self.client.close()
+
+    def process_item(self, item, spider):
+        if isinstance(item, NewHouseItem):
+            self.db[item.collection].update({'detail_url': item['detail_url']}, {'$set': dict(item)}, True)
+        elif isinstance(item, EsfHouseItem):
+            self.db[item.collection].update({'detail_url': item['detail_url']}, {'$set': dict(item)}, True)
+        print('正在写入...')
+        return item
+
+
+
+
+

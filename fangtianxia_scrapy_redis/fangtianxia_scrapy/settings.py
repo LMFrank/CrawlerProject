@@ -14,12 +14,16 @@ BOT_NAME = 'fangtianxia_scrapy'
 SPIDER_MODULES = ['fangtianxia_scrapy.spiders']
 NEWSPIDER_MODULE = 'fangtianxia_scrapy.spiders'
 
-
+# mysql连接配置
 MYSQL_USER = 'root'
 MYSQL_PASSWORD = 'password'
 MYSQL_DATABASE = 'fangtianxia'
 MYSQL_HOST = 'localhost'
 MYSQL_PORT = 3306
+
+# mongodb连接配置
+MONGO_URI = 'mongodb://username:password@ip:port'
+MONGO_DATABASE = 'dbname'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'fangtianxia_scrapy (+http://www.yourdomain.com)'
@@ -111,7 +115,8 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 # 设置redis为item pipeline
 ITEM_PIPELINES = {
     'scrapy_redis.pipelines.RedisPipeline': 300,
-    'fangtianxia_scrapy.pipelines.MysqlTwistedPipeline': 300,
+    # 'fangtianxia_scrapy.pipelines.MysqlTwistedPipeline': 300,
+    # 'fangtianxia_scrapy.pipelines.MongodbPipeline': 300,
 }
 
 # 在redis中保持scrapy-redis用到的队列，不会清理redis中的队列，从而可以实现暂停和恢复的功能。

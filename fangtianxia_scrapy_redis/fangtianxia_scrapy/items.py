@@ -9,6 +9,8 @@ import scrapy
 
 
 class NewHouseItem(scrapy.Item):
+    collection = 'newhouse'
+
     province = scrapy.Field()
     city = scrapy.Field()
     name = scrapy.Field()
@@ -21,6 +23,8 @@ class NewHouseItem(scrapy.Item):
     detail_url = scrapy.Field()
 
 class EsfHouseItem(scrapy.Item):
+    collection = 'esfhouse'
+
     province = scrapy.Field()
     city = scrapy.Field()
     name = scrapy.Field()
