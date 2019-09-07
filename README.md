@@ -8,6 +8,7 @@
 - [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)](https://github.com/LMFrank/CrawlerProject/tree/master/fangtianxia_scrapy_redis)
 
 **NOTE:**
+
 1. 开发环境：Win10(WSL-Ubuntu、VBox-Ubuntu) + Anaconda3 + PyCharm(VSCode) + Cmder + XShell
 2. WSL环境的搭建可参考我写的博文：[打造Win10+WSL开发环境【图文】](https://blog.csdn.net/LMFranK/article/details/100214551)
 3. VSCode Insider版本实现win10下远程连接WSL编写代码更加方便
@@ -82,7 +83,16 @@
 
 关于房天下的爬虫网络上有很多，但是实际运行后，会有一些问题。比如，目前房天下的城市房源页面加入了广告页，这是爬取过程中不需要的数据，如果不处理，会直接报错，停止爬虫运行。在该项目中我对遇到的问题进行了优化，具体已经在代码里进行了注释。
 
+**更新：**
+2019/09/07
+1. 加入了MongodbPipeline：在实际爬取过程中，经常出现数据存入mysql发生错误，这是由于爬取过程中，字段缺失导致不匹配造成的。因此，加入了mongodb这种菲关系型数据库，帮助存储数据
+
+2. 改变了存储模式，之前打开了RedisItem，但是把redis作为数据存储比较浪费，因此将请求队列和数据存储区分开来，远程连接mongodb完成数据入库的工作
+
+   
+
 **改造成分布式爬虫：**
+
 1. 首先安装scrapy-redis
 2. 将爬虫的类从 scrapy.Spider 变成 scrapy_redis.spiders.RedisSpider
 3. 将爬虫中的start_urls删掉。增加一个redis_key="xxx"。这个redis_key是为了以后在redis中控制爬虫启动的。爬虫的第一个url，就是在redis中通过这个发送出去的
