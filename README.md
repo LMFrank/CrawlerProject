@@ -111,6 +111,9 @@
 >scrapy runspider 爬虫名
 
 不再是scrapy crawl 爬虫名
+
+
+
 2. 在Redis服务器上，推入一个开始的url链接：
 >redis-cli> lpush [redis_key] start_url
 
