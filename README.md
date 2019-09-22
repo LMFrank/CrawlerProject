@@ -6,6 +6,7 @@
 - [1.4 爬取虎扑步行街](https://github.com/LMFrank/CrawlerProject/tree/master/Hupu)
 - [1.5 链家网租房爬虫项目（Scrapy+异步MySQL）](https://github.com/LMFrank/CrawlerProject/tree/master/lianjia_scrapy)
 - [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)](https://github.com/LMFrank/CrawlerProject/tree/master/fangtianxia_scrapy_redis)
+- [1.7 微信公众号（通过代理池爬取）](https://github.com/LMFrank/CrawlerProject/tree/master/Wechat)
 
 **NOTE:**
 
@@ -130,5 +131,8 @@
 2. 查看防火墙是否阻挡连接，redis设置远程连接时，应注释掉redis.conf里的"bind 127.0.0.1"字段
 
 **以上爬虫项目均用于学习，不用于任何商业目的。**
+
+### 1.7 微信公众号（通过代理池爬取）
+待更新
 
 
