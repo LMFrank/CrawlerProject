@@ -11,11 +11,18 @@
 **NOTE:**
 
 1. 开发环境：Win10(WSL-Ubuntu、VBox-Ubuntu) + Anaconda3 + PyCharm(VSCode) + Cmder + XShell
+
 2. WSL环境的搭建可参考我写的博文：[打造Win10+WSL开发环境【图文】](https://blog.csdn.net/LMFranK/article/details/100214551)
+
 3. VSCode Insider版本实现win10下远程连接WSL编写代码更加方便
+
 4. WSL的文件共享推荐XShell，VBox直接使用共享文件夹。如果使用Pycharm，可以直接进入tools-Deployment-configuration，创建sftp连接
+
 5. 终端强烈推荐Cmder，可以直接进入WSL环境
+
 6. 所有项目的包依赖集合在[requirements.txt](https://github.com/LMFrank/CrawlerProject/blob/master/requirements.txt)，其中因为部署在linux服务器上，所以我删除了pywin32包及mkl包，有需求可以自行添加
+
+***
 
 
 ### 1.1 链家网二手房源
@@ -33,12 +40,18 @@
 
 3、表结构设计有不合理处，楼层可使用正则表达式直接获取，从而删除包含建造时间的字段。
 
+***
+
 ### 1.2 Wikipedia
 * [深度优先的递归爬虫](https://github.com/LMFrank/CrawlerProject/blob/master/Wikipedia/Depth_First.py)
 * [广度优先的多线程爬虫](https://github.com/LMFrank/CrawlerProject/blob/master/Wikipedia/Breadth_First.py)
 
+***
+
 ### 1.3 BaiduAPI
 通过百度地图api获取全中国有关公园的信息，并且保存至mysql，注意表结构设计应遵循三范式
+
+***
 
 ### 1.4 爬取虎扑步行街
 爬取虎扑步行街的帖子，并存储信息至MongoDB
@@ -46,6 +59,8 @@
 写了个简单的MongoAPI，用于在爬虫文件中调用pymongo的操作
 
 问题：1、只能爬取前10页，应该是10页后需要登录才可以继续爬取。可以加入cookies解决反爬虫问题。
+
+***
 
 ### 1.5 链家网租房爬虫项目（Scrapy+异步MySQL）
 刚好需要租房，因此写了这个爬虫项目。目前网络上分享的关于链家网租房的爬虫项目似乎都已落后于网页更新，应该是今年链家网对租房页面进行了参数的重构。我提供的代码适配最新的租房网页，请放心食用:yum:，如果出现变动请告知。
@@ -131,6 +146,8 @@
 2. 查看防火墙是否阻挡连接，redis设置远程连接时，应注释掉redis.conf里的"bind 127.0.0.1"字段
 
 **以上爬虫项目均用于学习，不用于任何商业目的。**
+
+***
 
 ### 1.7 微信公众号（通过代理池爬取）
 微信公众号的爬取是基于[搜狗微信](https://weixin.sogou.com/)，未登录只能获取10页，登录后即可获取最多100页的内容。在前期测试过程中发现，搜狗微信封ip非常快，因此使用已搭建好的[代理池](https://github.com/LMFrank/ProxyPool)进行爬取。
