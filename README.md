@@ -17,7 +17,7 @@
 5. 终端强烈推荐Cmder，可以直接进入WSL环境
 6. 所有项目的包依赖集合在[requirements.txt](https://github.com/LMFrank/CrawlerProject/blob/master/requirements.txt)，其中因为部署在linux服务器上，所以我删除了pywin32包及mkl包，有需求可以自行添加
 
-**Go版爬虫链接**：[ https://github.com/LMFrank/Go_Crawler ] https://github.com/LMFrank/Go_Crawler 
+**Go版爬虫链接**：[https://github.com/LMFrank/Go_Crawler](https://github.com/LMFrank/Go_Crawler )
 
 ***
 
