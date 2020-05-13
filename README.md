@@ -1,26 +1,29 @@
-# CrawlerProject
+## CrawlerProject
 
-- [1.1 链家网二手房源](https://github.com/LMFrank/CrawlerProject/tree/master/LianJia)
-- [1.2 Wikipedia](https://github.com/LMFrank/CrawlerProject/tree/master/Wikipedia)
-- [1.3 BaiduAPI](https://github.com/LMFrank/CrawlerProject/tree/master/baidumapapi)
-- [1.4 爬取虎扑步行街](https://github.com/LMFrank/CrawlerProject/tree/master/Hupu)
-- [1.5 链家网租房爬虫项目（Scrapy+异步MySQL）](https://github.com/LMFrank/CrawlerProject/tree/master/lianjia_scrapy)
-- [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)](https://github.com/LMFrank/CrawlerProject/tree/master/fangtianxia_scrapy_redis)
-- [1.7 微信公众号（通过代理池爬取）](https://github.com/LMFrank/CrawlerProject/tree/master/Wechat)
+**目录：**
+
+[toc]
+
+**链接**：
+
+* [1.1 链家网二手房源](https://github.com/LMFrank/CrawlerProject/tree/master/LianJia)
+* [1.2 Wikipedia](https://github.com/LMFrank/CrawlerProject/tree/master/Wikipedia)
+* [1.3 BaiduAPI](https://github.com/LMFrank/CrawlerProject/tree/master/baidumapapi)
+* [1.4 爬取虎扑步行街](https://github.com/LMFrank/CrawlerProject/tree/master/Hupu)
+* [1.5 链家网租房爬虫项目（Scrapy+异步MySQL）](https://github.com/LMFrank/CrawlerProject/tree/master/lianjia_scrapy)
+* [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)](https://github.com/LMFrank/CrawlerProject/tree/master/fangtianxia_scrapy_redis)
+* [1.7 微信公众号（通过代理池爬取）](https://github.com/LMFrank/CrawlerProject/tree/master/Wechat)
 
 **NOTE:**
 
-1. 开发环境：Win10(WSL-Ubuntu、VBox-Ubuntu) + Anaconda3 + PyCharm(VSCode) + Cmder + XShell
-
+1. 开发环境：Win10(WSL-Ubuntu、VMWare-Ubuntu Server 18.04) + Anaconda3 + PyCharm(VSCode) + Cmder + XShell
 2. WSL环境的搭建可参考我写的博文：[打造Win10+WSL开发环境【图文】](https://blog.csdn.net/LMFranK/article/details/100214551)
-
-3. VSCode Insider版本实现win10下远程连接WSL编写代码更加方便
-
+3. ~~VSCode Insider版本实现win10下远程连接WSL编写代码更加方便~~，Pycharm更好用
 4. WSL的文件共享推荐XShell，VBox直接使用共享文件夹。如果使用Pycharm，可以直接进入tools-Deployment-configuration，创建sftp连接
-
 5. 终端强烈推荐Cmder，可以直接进入WSL环境
-
 6. 所有项目的包依赖集合在[requirements.txt](https://github.com/LMFrank/CrawlerProject/blob/master/requirements.txt)，其中因为部署在linux服务器上，所以我删除了pywin32包及mkl包，有需求可以自行添加
+
+**Go版爬虫链接**：[ https://github.com/LMFrank/Go_Crawler ] https://github.com/LMFrank/Go_Crawler 
 
 ***
 

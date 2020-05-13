@@ -97,10 +97,12 @@ class FangSpider(RedisSpider):
                 yield item
 
         next_url = response.xpath('//div[@class="page"]//a[class="next"]/@href').get()
+        print(next_url)
         if next_url:
             yield scrapy.Request(url=response.urljoin(next_url),
                                  callback=self.parse_newhouse,
                                  meta={'info': (province, city)})
+
 
     def parse_esf(self, response):
         # 二手房

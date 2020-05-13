@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
 class MongoAPI(object):
-    
+   
     def __init__(self, db_ip, db_port, db_name, table_name):
         self.db_ip = db_ip
         self.db_port = db_port
@@ -10,7 +10,7 @@ class MongoAPI(object):
         self.conn = MongoClient(host=self.db_ip, port=self.db_port,)
         self.db = self.conn[self.db_name]
         self.table = self.db[self.table_name]
-    
+  
     def get_one(self, query):
         return self.table.find_one(query, projection={'_id', False})
 

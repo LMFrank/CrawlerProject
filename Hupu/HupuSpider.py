@@ -28,3 +28,4 @@ for i in range(1, 12):
                                                   'last_reply_time': each[8]})
     time.sleep(3)
     print(f"第{i}页获取完成， 休息3秒！")
+    
