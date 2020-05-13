@@ -15,7 +15,7 @@ def getjson(loc, page_num=0):
         'page_size': 20,
         'page_num': page_num,
         'output': 'json',
-        'ak': 'LOVdpnL0reRGKksCmGqlnccz4AbH8uCH'
+        'ak': ''
     }
     link = 'http://api.map.baidu.com/place/v2/search'
     r = requests.get(link, params=pa, headers=headers)

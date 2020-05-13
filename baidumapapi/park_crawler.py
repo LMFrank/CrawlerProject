@@ -21,7 +21,7 @@ def getjson(uid):
         'uid': uid,
         'scope': '2',
         'output': 'json',
-        'ak': 'Gy7Hmmp2qCLg3T885tYGDpxFHcueom0P'
+        'ak': ''
     }
     link = 'http://api.map.baidu.com/place/v2/detail'
     r = requests.get(link, params=pa, headers=headers)
