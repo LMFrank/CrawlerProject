@@ -7,6 +7,7 @@
 * [1.5 链家网租房爬虫项目（Scrapy+异步MySQL）](https://github.com/LMFrank/CrawlerProject/tree/master/lianjia_scrapy)
 * [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)](https://github.com/LMFrank/CrawlerProject/tree/master/fangtianxia_scrapy_redis)
 * [1.7 微信公众号（通过代理池爬取）](https://github.com/LMFrank/CrawlerProject/tree/master/Wechat)
+* [1.8 爬取网页转换成pdf]()
 
 **NOTE:**
 
@@ -144,8 +145,6 @@
 
 2. 查看防火墙是否阻挡连接，redis设置远程连接时，应注释掉redis.conf里的"bind 127.0.0.1"字段
 
-**以上爬虫项目均用于学习，不用于任何商业目的。**
-
 ***
 
 ### 1.7 微信公众号（通过代理池爬取）
@@ -157,4 +156,15 @@
 2. 实际测试发现，如果使用免费代理，即使使用了代理池中评分最高，也基本都会被封。因此，因此如果有需求，需要自行添加高质量代理
 3. 该项目基本思路基于《Python3网络爬虫开发实战》
 
+***
 
+### 1.8 爬取网页转换成pdf
+
+我们爬取的数据进行持久化的方式并不仅限于数据库存储，有时候我们也可以转换成pdf，便于阅读。该爬虫利用了第三方软件[wkhtmltopdf](http://wkhtmltopdf.org/downloads.html)以及Python的`pdfkit`库完成对网页内容的格式转换。
+
+- windows平台直接在链接中下载，需要手动配置环境变量
+- Linux平台可以直接使用`sudo apt-get install wkhtmltopdf`命令安装
+
+目前html转换pdf的过程仍有warning，但是不影响最终输出
+
+**以上爬虫项目均用于学习，不用于任何商业目的。**
