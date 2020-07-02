@@ -7,7 +7,8 @@
 * [1.5 链家网租房爬虫项目（Scrapy+异步MySQL）](https://github.com/LMFrank/CrawlerProject/tree/master/lianjia_scrapy)
 * [1.6 房天下新房、二手房爬虫项目（Scrapy-Redis分布式爬虫)](https://github.com/LMFrank/CrawlerProject/tree/master/fangtianxia_scrapy_redis)
 * [1.7 微信公众号（通过代理池爬取）](https://github.com/LMFrank/CrawlerProject/tree/master/Wechat)
-* [1.8 爬取网页转换成pdf]()
+* [1.8 爬取网页转换成pdf](https://github.com/LMFrank/CrawlerProject/tree/master/html2pdf)
+* [1.9 下载bilibili视频](https://github.com/LMFrank/CrawlerProject/tree/master/bilibili_video)
 
 **NOTE:**
 
@@ -166,5 +167,18 @@
 - Linux平台可以直接使用`sudo apt-get install wkhtmltopdf`命令安装
 
 目前html转换pdf的过程仍有warning，但是不影响最终输出
+
+***
+
+### 1.9 下载bilibili视频
+
+B站视频目前对视频地址做了加密，如图，在js中找到了对应的url。目前下载只有画面，似乎是音频和画面是分开的，需要通过第三方软件合并。
+
+![b_video](https://github.com/LMFrank/CrawlerProject/blob/master/bilibili_video/imgs/b_video.jpg)
+
+改进：
+
+1. 分P下载（这个比较容易实现，url规则比较明显，使用for循环即可实现
+2. js中对清晰度标识的还是很明显的，但是碰到版权要求或者会员清晰度，是无法下载的。可以通过cookie解决
 
 **以上爬虫项目均用于学习，不用于任何商业目的。**
