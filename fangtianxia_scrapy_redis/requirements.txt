@@ -17,7 +17,7 @@ Click==7.0
 colorama==0.4.1
 concurrent-log-handler==0.9.16
 constantly==15.1.0
-cryptography==2.7
+cryptography==3.2
 cssselect==1.1.0
 decorator==4.4.0
 entrypoints==0.3
