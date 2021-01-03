@@ -9,6 +9,7 @@
 * [1.7 微信公众号（通过代理池爬取）](https://github.com/LMFrank/CrawlerProject/tree/master/Wechat)
 * [1.8 爬取网页转换成pdf](https://github.com/LMFrank/CrawlerProject/tree/master/html2pdf)
 * [1.9 下载bilibili视频](https://github.com/LMFrank/CrawlerProject/tree/master/bilibili_video)
+* [1.10 本地保存微信公众号文章](https://github.com/LMFrank/CrawlerProject/tree/master/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E8%8E%B7%E5%8F%96)
 
 **NOTE:**
 
@@ -180,5 +181,9 @@ B站视频目前对视频地址做了加密，如图，在js中找到了对应�
 
 1. 分P下载（这个比较容易实现，url规则比较明显，使用for循环即可实现
 2. js中对清晰度标识的还是很明显的，但是碰到版权要求或者会员清晰度，是无法下载的。可以通过cookie解决
+
+### 1.10 本地保存微信公众号文章
+
+详情见[README.md](https://github.com/LMFrank/CrawlerProject/tree/master/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0%E8%8E%B7%E5%8F%96)
 
 **以上爬虫项目均用于学习，不用于任何商业目的。**
