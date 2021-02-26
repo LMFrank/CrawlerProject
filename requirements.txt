@@ -1,4 +1,4 @@
-aiohttp==3.5.4
+aiohttp==3.7.4
 aiomultiprocess==0.6.0
 aiomysql==0.0.20
 asn1crypto==0.24.0
