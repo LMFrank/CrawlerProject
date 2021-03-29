@@ -54,7 +54,7 @@ pycodestyle==2.5.0
 pycparser==2.19
 PyDispatcher==2.0.5
 pyflakes==2.1.1
-Pygments==2.4.2
+Pygments==2.7.4
 PyHamcrest==1.9.0
 pylint==2.3.1
 pymongo==3.9.0
